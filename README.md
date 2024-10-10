@@ -15,3 +15,9 @@ Learning how to write fast GPU programs.
 | 1 - Map | [puzzles01.cu](/gpu-puzzles/puzzle01/puzzle01.cu) |
 
 
+## Metal Kernels
+
+| Kernel |
+|--------|
+| [greyscale_metal.py](/metal/greyscale_metal.py) |
+
