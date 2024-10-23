@@ -7,6 +7,7 @@ Learning how to write fast GPU programs.
 | Chapter | Kernel |
 |---------|--------|
 | Ch. 2   | [vector_addition.cu](/pmpp/vector_addition/vector_addition.cu) |
+| Ch. 3   | [greyscale.cu](/pmpp/greyscale/greyscale.cu) |
 
 ## GPU-Puzzles in CUDA C
 
