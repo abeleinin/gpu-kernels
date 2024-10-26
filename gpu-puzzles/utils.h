@@ -7,6 +7,13 @@ void init_arr(float* arr, int size) {
     }
 }
 
+// initialize c array with incremental values from 0 to size-1
+void arange_arr(float* arr, int size) {
+    for (int i = 0; i < size; ++i) {
+        arr[i] = i;
+    }
+}
+
 // print the given c array
 void print_arr(float* arr, int size) {
     for (int i = 0; i < size; ++i) {

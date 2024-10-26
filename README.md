@@ -15,6 +15,7 @@ Learning how to write fast GPU programs.
 | Puzzle  | Kernel |
 |---------|--------|
 | 1 - Map | [puzzles01.cu](/gpu-puzzles/puzzle01/puzzle01.cu) |
+| 2 - Zip | [puzzles02.cu](/gpu-puzzles/puzzle02/puzzle02.cu) |
 
 ## Metal Kernels
 
