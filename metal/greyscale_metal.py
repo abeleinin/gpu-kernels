@@ -30,9 +30,7 @@ def greyscale_kernel(a: mx.array):
             float g = a[rgbOffset+1];
             float b = a[rgbOffset+2];
             float grey = r*0.21 + g*0.72 + b*0.07;
-            out[rgbOffset] = grey;
-            out[rgbOffset+1] = grey;
-            out[rgbOffset+2] = grey;
+            out[index] = grey;
         }
     """
 
@@ -47,7 +45,7 @@ def greyscale_kernel(a: mx.array):
         inputs=[a],
         grid=(a.shape[0], a.shape[1], 1),
         threadgroup=(8, 8, 1),
-        output_shapes=[a.shape],
+        output_shapes=[a.shape[:2]],
         output_dtypes=[mx.float32],
         stream=mx.gpu,
         init_value=0,
