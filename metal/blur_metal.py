@@ -7,9 +7,11 @@ import numpy as np
 import mlx.core as mx
 
 
+# metal kernel using MLX custom kernels to apply a mean blur
+# to the given (H,W,C) uint8 color image 
 def blur_kernel(a: mx.array):
     header = """
-        constant uint BLUR_SIZE = 1;
+        constant int BLUR_SIZE = 3;
         constant uint CHANNELS = 3;
     """
 
@@ -45,9 +47,9 @@ def blur_kernel(a: mx.array):
             }
 
             uint offset = (row*a_shape[0] + col) * CHANNELS;
-            out[offset    ] = (unsigned char)(pixValR/pixels);
-            out[offset + 1] = (unsigned char)(pixValG/pixels);
-            out[offset + 2] = (unsigned char)(pixValB/pixels);
+            out[offset    ] = (uint)(pixValR/pixels);
+            out[offset + 1] = (uint)(pixValG/pixels);
+            out[offset + 2] = (uint)(pixValB/pixels);
         }
     """
 
@@ -64,7 +66,7 @@ def blur_kernel(a: mx.array):
         grid=(a.shape[0], a.shape[1], 1),
         threadgroup=(8, 8, 1),
         output_shapes=[a.shape],
-        output_dtypes=[mx.float32],
+        output_dtypes=[mx.uint8],
         stream=mx.gpu,
         init_value=0
     )
@@ -85,9 +87,7 @@ if __name__ == '__main__':
     # call metal kernel
     blur_img = blur_kernel(img)
 
-    # convert back to uint8 PIL.Image and save as jpg
-    blur_img_uint8 = (np.array(blur_img)).astype('uint8')
-    image = Image.fromarray(blur_img_uint8)
+    # convert into PIL.Image and save as jpg
+    image = Image.fromarray(np.array(blur_img))
     input_name, _ = os.path.splitext(os.path.basename(img_path))
     image.save(f'blur_{input_name}.jpg', format='JPEG')
-

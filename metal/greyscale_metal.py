@@ -6,11 +6,9 @@ from PIL import Image
 import numpy as np
 import mlx.core as mx
 
-
 # converts (r,g,b) color values to grey scale equivalent
 def luminance(r: float, g: float, b: float):
     return r*0.21 + g*0.72 + b*0.07
-
 
 # metal kernel using MLX custom kernels to convert a given 
 # (H,W,C) uint8 color image to a greyscale (H,W,C) equivalent
@@ -29,7 +27,7 @@ def greyscale_kernel(a: mx.array):
             float r = a[rgbOffset];
             float g = a[rgbOffset+1];
             float b = a[rgbOffset+2];
-            float grey = r*0.21 + g*0.72 + b*0.07;
+            uint grey = r*0.21 + g*0.72 + b*0.07;
             out[index] = grey;
         }
     """
@@ -46,7 +44,7 @@ def greyscale_kernel(a: mx.array):
         grid=(a.shape[0], a.shape[1], 1),
         threadgroup=(8, 8, 1),
         output_shapes=[a.shape[:2]],
-        output_dtypes=[mx.float32],
+        output_dtypes=[mx.uint8],
         stream=mx.gpu,
         init_value=0,
     )
@@ -67,9 +65,7 @@ if __name__ == '__main__':
     # call metal kernel
     grey_img = greyscale_kernel(img)
 
-    # convert back to uint8 PIL.Image and save as jpg
-    grey_img_uint8 = (np.array(grey_img)).astype('uint8')
-    image = Image.fromarray(grey_img_uint8)
+    # convert into PIL.Image and save as jpg
+    image = Image.fromarray(np.array(grey_img))
     input_name, _ = os.path.splitext(os.path.basename(img_path))
     image.save(f'grey_{input_name}.jpg', format='JPEG')
-
