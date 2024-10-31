@@ -23,6 +23,7 @@ Learning how to write fast GPU programs.
 | Kernel |
 |--------|
 | [greyscale_metal.py](/metal/greyscale_metal.py) |
+| [blur_metal.py](/metal/blur_metal.py) |
 
 ## Notes
 
