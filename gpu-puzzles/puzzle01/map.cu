@@ -2,14 +2,12 @@
 
 #include "../utils.h"
 
-__global__ void guardKernel(float* a, float* out, int n) {
+__global__ void map_kernel(float* a, float* out, int n) {
   int i = threadIdx.x;
-  if (i < n) {
-    out[i] = a[i] + 10;
-  }
+  out[i] = a[i] + 10;
 }
 
-void guardTest(float* a, float* out, int n) {
+void map_test(float* a, float* out, int n) {
   float *a_d, *out_d;
   int size = n * sizeof(float);
 
@@ -18,7 +16,7 @@ void guardTest(float* a, float* out, int n) {
 
   cudaMemcpy(a_d, a, size, cudaMemcpyHostToDevice);
 
-  guardKernel<<<1, 8>>>(a_d, out_d, n);
+  map_kernel<<<1, 4>>>(a_d, out_d, n);
   
   cudaMemcpy(out, out_d, size, cudaMemcpyDeviceToHost);
 
@@ -32,11 +30,11 @@ int main(void) {
   float a[n];
   float out[n];
 
-  init_arr(a, n);
+  arange_array(a, n);
 
-  guardTest(a, out, n);
+  map_test(a, out, n);
 
-  print_arr(out, n);
+  print_array(out, n);
 
   return 0;
 }

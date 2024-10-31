@@ -2,12 +2,12 @@
 
 #include "../utils.h"
 
-__global__ void zipKernel(float* a, float* b, float* out, int n) {
+__global__ void zip_kernel(float* a, float* b, float* out, int n) {
   int i = threadIdx.x;
   out[i] = a[i] + b[i];
 }
 
-void zipTest(float* a, float* b, float* out, int n) {
+void zip_test(float* a, float* b, float* out, int n) {
   float *a_d, *b_d, *out_d;
   int size = n * sizeof(float);
 
@@ -18,7 +18,7 @@ void zipTest(float* a, float* b, float* out, int n) {
   cudaMemcpy(a_d, a, size, cudaMemcpyHostToDevice);
   cudaMemcpy(b_d, b, size, cudaMemcpyHostToDevice);
 
-  zipKernel<<<1, 4>>>(a_d, b_d, out_d, n);
+  zip_kernel<<<1, 4>>>(a_d, b_d, out_d, n);
   
   cudaMemcpy(out, out_d, size, cudaMemcpyDeviceToHost);
 
@@ -29,17 +29,17 @@ void zipTest(float* a, float* b, float* out, int n) {
 
 
 int main(void) {
-  const int n = 4;
+  int n = 4;
   float a[n];
   float b[n];
   float out[n];
 
-  arange_arr(a, n);
-  arange_arr(b, n);
+  arange_array(a, n);
+  arange_array(b, n);
 
-  zipTest(a, b, out, n);
+  zip_test(a, b, out, n);
 
-  print_arr(out, n);
+  print_array(out, n);
 
   return 0;
 }
