@@ -1,6 +1,6 @@
 #include <cuda.h>
 
-#include "../utils.h"
+#include "utils.h"
 
 __global__ void map_kernel(float* a, float* out, int n) {
   int i = threadIdx.x;

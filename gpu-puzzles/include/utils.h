@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 // initialize c array values to 0
-void init_arr(float* arr, int size) {
+void init_array(float* arr, int size) {
     for (int i = 0; i < size; ++i) {
         arr[i] = 0;
     }

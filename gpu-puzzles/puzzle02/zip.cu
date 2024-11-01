@@ -1,6 +1,6 @@
 #include <cuda.h>
 
-#include "../utils.h"
+#include "utils.h"
 
 __global__ void zip_kernel(float* a, float* b, float* out, int n) {
   int i = threadIdx.x;
