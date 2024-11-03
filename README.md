@@ -30,3 +30,7 @@ Learning how to write fast GPU programs.
 ## Notes
 
 [Metal vs. CUDA reference](notes/metal-vs-cuda.md)
+
+## Resources
+
+- [Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking](https://arxiv.org/pdf/1804.06826)
