@@ -26,6 +26,7 @@ Learning how to write fast GPU programs.
 |--------|
 | [greyscale_metal.py](/metal/greyscale_metal.py) |
 | [blur_metal.py](/metal/blur_metal.py) |
+| [matmul_metal.py](/metal/matmul_metal.py) |
 
 ## Notes
 
@@ -33,4 +34,12 @@ Learning how to write fast GPU programs.
 
 ## Resources
 
+### References
+
+- [Nvidia Tesla V100 GPU Architecture](https://images.nvidia.com/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf)
+- [CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf)
+
+### Papers/Blogs
+
 - [Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking](https://arxiv.org/pdf/1804.06826)
+- [How to Optimize a CUDA Matmul Kernel for cuBLAS-like Performance](https://siboehm.com/articles/22/CUDA-MMM) 
