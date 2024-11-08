@@ -32,14 +32,12 @@ Learning how to write fast GPU programs.
 
 [Metal vs. CUDA reference](notes/metal-vs-cuda.md)
 
-## Resources
-
-### References
+## References
 
 - [Nvidia Tesla V100 GPU Architecture](https://images.nvidia.com/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf)
 - [CUDA C++ Programming Guide](https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf)
 
-### Papers/Blogs
+## Papers/Blogs
 
 - [Dissecting the NVIDIA Volta GPU Architecture via Microbenchmarking](https://arxiv.org/pdf/1804.06826)
 - [How to Optimize a CUDA Matmul Kernel for cuBLAS-like Performance](https://siboehm.com/articles/22/CUDA-MMM) 
