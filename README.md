@@ -19,6 +19,7 @@ Learning how to write fast GPU programs.
 | 3 - Guard | [guard.cu](/gpu-puzzles/guard.cu) |
 | 4 - Map 2D | [map2D.cu](/gpu-puzzles/map2D.cu) |
 | 5 - Broadcast | [broadcast.cu](/gpu-puzzles/broadcast.cu) |
+| 6 - Blocks | [blocks.cu](/gpu-puzzles/blocks.cu) |
 
 ## Metal Kernels
 
