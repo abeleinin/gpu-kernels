@@ -12,8 +12,8 @@ all: $(TARGET)
 
 # Compile the CUDA file into an executable, linking with libjpeg
 $(TARGET): $(SRC)
-    $(CUDA_COMPILER) $(CUDA_FLAGS) $< -o $@ -L$(LIB_PATH) $(JPEG_LIB) -I$(INCLUDE_PATH)
+	$(CUDA_COMPILER) $(CUDA_FLAGS) $< -o $@ -L$(LIB_PATH) $(JPEG_LIB) -I$(INCLUDE_PATH)
 
 # Clean the build files
 clean:
-    rm -f $(TARGET)
+	rm -f $(TARGET)
