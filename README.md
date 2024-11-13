@@ -9,6 +9,7 @@ Learning how to write fast GPU programs.
 | Ch. 2   | [vector_addition.cu](/pmpp/vector_addition/vector_addition.cu) |
 | Ch. 3   | [greyscale.cu](/pmpp/greyscale/greyscale.cu) |
 | Ch. 3   | [blur.cu](/pmpp/blur/blur.cu) |
+| Ch. 3   | [naive_matmul.cu](/pmpp/matmul/naive_matmul.cu) |
 
 ## GPU-Puzzles in CUDA C
 
