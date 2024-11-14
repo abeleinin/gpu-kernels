@@ -16,6 +16,23 @@ __global__ void MatrixMulKernel(float* M, float* N, float* P, int Width) {
     }
 }
 
+// PMPP Exercise 1a
+__global__ void matmul_exercise_1a(float *M, float *N, float *P, int Width) {
+    int row = blockIdx.x * blockDim.x + threadIdx.x;
+
+    if (row < Width) {
+        for (int p = 0; p < Width; p++) {
+            P[row * P + p] = 0.0f;
+        }
+
+        for (int n = 0; n < Width; n++) {
+            for (int p = 0; p < Width; p++) {
+                P[row * Width + p] += M[row * Width + n] * N[n * Width + p];
+            }
+        }
+    }
+}
+
 // allocate memory for matmul and manage data transfer between host and device
 void matmul(float* Min, float* Nin, float* Pout, int width) {
   float *Min_d, *Nin_d, *Pout_d;
