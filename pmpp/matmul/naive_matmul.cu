@@ -17,17 +17,34 @@ __global__ void MatrixMulKernel(float* M, float* N, float* P, int Width) {
 }
 
 // PMPP Exercise 1a
-__global__ void matmul_exercise_1a(float *M, float *N, float *P, int Width) {
+__global__ void matmulExercise1a(float* M, float* N, float* P, int Width) {
     int row = blockIdx.x * blockDim.x + threadIdx.x;
 
     if (row < Width) {
         for (int p = 0; p < Width; p++) {
-            P[row * P + p] = 0.0f;
+            P[row * Width + p] = 0.0f;
         }
 
         for (int n = 0; n < Width; n++) {
             for (int p = 0; p < Width; p++) {
                 P[row * Width + p] += M[row * Width + n] * N[n * Width + p];
+            }
+        }
+    }
+}
+
+// PMPP Exercise 1b
+__global__ void matmulExercise1b(float* M, float* N, float* P, int Width) {
+    int col = blockIdx.y * blockDim.y + threadIdx.y;
+
+    if (col < Width) {
+        for (int p = 0; p < Width; p++) {
+            P[p * Width + col] = 0.0f;
+        }
+
+        for (int n = 0; n < Width; n++) {
+            for (int p = 0; p < Width; p++) {
+                P[n * Width + col] += M[n * Width + col] * N[n * Width + p];
             }
         }
     }
