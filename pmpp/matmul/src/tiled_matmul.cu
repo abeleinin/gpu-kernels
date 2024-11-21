@@ -1,5 +1,7 @@
 #include <cuda.h>
 
+#include "utils.h"
+
 #define TILE_WIDTH 16
 
 // Figure 5.9 PMPP
@@ -54,20 +56,6 @@ void matmul(float* Min, float* Nin, float* Pout, int width) {
   cudaFree(Min_d);
   cudaFree(Nin_d);
   cudaFree(Pout_d);
-}
-
-// print the given array
-void print_array(float* arr, int size) {
-  for (int i = 0; i < size; ++i) {
-    if (i > 0) {
-      printf(", ");
-      if (i % 10 == 0) {
-        printf("\n");
-      }
-    }
-    printf("%0.1f", arr[i]);
-  }
-  printf("\n"); 
 }
 
 int main(void) {
