@@ -10,6 +10,7 @@ Learning how to write fast GPU programs.
 | Ch. 3   | [greyscale.cu](/pmpp/greyscale/greyscale.cu) |
 | Ch. 3   | [blur.cu](/pmpp/blur/blur.cu) |
 | Ch. 3   | [naive_matmul.cu](/pmpp/matmul/naive_matmul.cu) |
+| Ch. 5   | [tiled_matmul.cu](/pmpp/matmul/tiled_matmul.cu) |
 
 ## GPU-Puzzles in CUDA C
 
@@ -32,7 +33,7 @@ Learning how to write fast GPU programs.
 
 ## Notes
 
-[Metal vs. CUDA reference](notes/metal-vs-cuda.md)
+- [Metal vs. CUDA reference](notes/metal-vs-cuda.md)
 
 ## References
 
