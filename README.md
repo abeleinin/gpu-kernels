@@ -9,19 +9,19 @@ Learning how to write fast GPU programs.
 | Ch. 2   | [vector_addition.cu](/pmpp/vector_addition/vector_addition.cu) |
 | Ch. 3   | [greyscale.cu](/pmpp/greyscale/greyscale.cu) |
 | Ch. 3   | [blur.cu](/pmpp/blur/blur.cu) |
-| Ch. 3   | [naive_matmul.cu](/pmpp/matmul/naive_matmul.cu) |
-| Ch. 5   | [tiled_matmul.cu](/pmpp/matmul/tiled_matmul.cu) |
+| Ch. 3   | [naive_matmul.cu](/pmpp/matmul/src/naive_matmul.cu) |
+| Ch. 5   | [tiled_matmul.cu](/pmpp/matmul/src/tiled_matmul.cu) |
 
 ## GPU-Puzzles in CUDA C
 
 | Puzzle  | Kernel |
 |---------|--------|
-| 1 - Map | [map.cu](/gpu-puzzles/map.cu) |
-| 2 - Zip | [zip.cu](/gpu-puzzles/zip.cu) |
-| 3 - Guard | [guard.cu](/gpu-puzzles/guard.cu) |
-| 4 - Map 2D | [map2D.cu](/gpu-puzzles/map2D.cu) |
-| 5 - Broadcast | [broadcast.cu](/gpu-puzzles/broadcast.cu) |
-| 6 - Blocks | [blocks.cu](/gpu-puzzles/blocks.cu) |
+| 1 - Map | [map.cu](/gpu-puzzles/src/map.cu) |
+| 2 - Zip | [zip.cu](/gpu-puzzles/src/zip.cu) |
+| 3 - Guard | [guard.cu](/gpu-puzzles/src/guard.cu) |
+| 4 - Map 2D | [map2D.cu](/gpu-puzzles/src/map2D.cu) |
+| 5 - Broadcast | [broadcast.cu](/gpu-puzzles/src/broadcast.cu) |
+| 6 - Blocks | [blocks.cu](/gpu-puzzles/src/blocks.cu) |
 
 ## Metal Kernels
 
